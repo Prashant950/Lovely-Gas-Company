@@ -7,11 +7,11 @@
 //    Use full international format, digits only, no "+" and no spaces
 //    (this is what WhatsApp's wa.me links require).
 //    Example for +91 98765 43210  ->  '919876543210'
-export const WHATSAPP_NUMBER = '9905969905' // TODO: replace with real number
+export const WHATSAPP_NUMBER = '919084852104'
 
 // Human-friendly version shown in text / tel: links.
-export const PHONE_DISPLAY = '+91 9905969905' // TODO: replace with real number
-export const PHONE_TEL = '+919905969905' // TODO: replace with real number
+export const PHONE_DISPLAY = '+91 9084852104'
+export const PHONE_TEL = '+919084852104'
 
 export const business = {
   name: 'Lovely Gas Company & Home Service Provider',
