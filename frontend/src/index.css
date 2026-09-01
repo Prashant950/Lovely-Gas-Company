@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-navy-900 font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-gold-400 text-navy-900;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #eef2f8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00264d;
+    border-radius: 999px;
+    border: 2px solid #eef2f8;
+  }
+}
+
+@layer components {
+  /* Layout helpers */
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-8 sm:py-10 lg:py-12;
+  }
+
+  /* Section heading eyebrow */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-navy-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-navy-700;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-navy-200 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-navy-700 text-white shadow-card hover:bg-navy-800 hover:-translate-y-0.5 hover:shadow-card-hover active:translate-y-0;
+  }
+  .btn-gold {
+    @apply bg-gold-gradient text-navy-900 shadow-card hover:-translate-y-0.5 hover:shadow-card-hover active:translate-y-0;
+  }
+  .btn-outline {
+    @apply border-2 border-navy-700 bg-transparent text-navy-700 hover:bg-navy-700 hover:text-white hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply text-navy-700 hover:bg-navy-50;
+  }
+  .btn-whatsapp {
+    @apply bg-[#25D366] text-white shadow-card hover:bg-[#1ebe5b] hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+  .btn-sm {
+    @apply px-4 py-2 text-xs;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-navy-100/70 bg-white shadow-card transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1.5 hover:shadow-card-hover;
+  }
+
+  /* Form controls */
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-navy-800;
+  }
+  .input {
+    @apply w-full rounded-xl border border-navy-200 bg-white px-4 py-2.5 text-navy-900 placeholder:text-navy-300 transition focus:border-navy-700 focus:outline-none focus:ring-4 focus:ring-navy-100;
+  }
+  .textarea {
+    @apply input min-h-[120px] resize-y;
+  }
+
+  /* Public nav links */
+  .nav-link {
+    @apply relative rounded-lg px-3 py-2 text-sm font-semibold text-navy-700 transition-colors hover:text-navy-900;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-gold-400 transition-transform duration-300;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply scale-x-100;
+  }
+  .nav-link.active {
+    @apply text-navy-900;
+  }
+
+  /* Admin sidebar links */
+  .admin-link {
+    @apply flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-navy-100/80 transition-colors hover:bg-white/10 hover:text-white;
+  }
+  .admin-link.active {
+    @apply bg-white/15 text-white;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+  }
+  /* Reusable scroll-reveal (used with IntersectionObserver .in-view toggle) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .shimmer {
+    background: linear-gradient(90deg, #eef2f8 25%, #dde5f0 37%, #eef2f8 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
