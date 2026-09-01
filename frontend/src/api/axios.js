@@ -1,8 +1,17 @@
 import axios from 'axios'
 
+const getApiBaseUrl = () => {
+  let url = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+  url = url.trim().replace(/\/+$/, '')
+  if (!url.endsWith('/api')) {
+    url += '/api'
+  }
+  return url
+}
+
 // Central axios instance. Base URL points at the Express API.
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: getApiBaseUrl(),
   headers: { 'Content-Type': 'application/json' },
 })
 
