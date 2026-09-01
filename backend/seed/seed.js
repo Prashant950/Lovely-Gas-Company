@@ -185,7 +185,7 @@ const seed = async () => {
         email: 'admin@lovelygas.com',
         password: 'Admin@123',
         role: 'admin',
-        phone: '+919905969905',
+        phone: '+919084852104',
       },
       {
         name: 'Demo User',
